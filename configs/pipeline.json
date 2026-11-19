@@ -1,0 +1,12 @@
+{
+  "profile": "quality-split",
+  "decoder": { "surfaces": 16, "output_format": "NV12/P016" },
+  "compute": { "stream_priority": -5, "trt_fp16": true, "static_shape": [1, 3, 1080, 1920] },
+  "encoder": {
+    "codec": "hevc", "preset": "P7", "tuning": "HIGH_QUALITY", "rc": "CQP", "qp": 18,
+    "gop": 250, "bframes": 5, "refs": 8, "lookahead": 16, "bref_mode": "middle",
+    "bit_depth": 10, "split_enc": "forced_2", "num_encoders": 1, "mode": "single-session-split2",
+    "note": "Профиль quality/NVEncC: -u quality --lookahead 16 --gop-len 250 -b 5 --ref 8 --bref-mode middle --cqp 18 + --split-enc forced_2"
+  },
+  "queues": { "packets_cap": 32, "frames_cap": 6 }
+}
